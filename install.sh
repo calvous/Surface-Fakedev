@@ -20,8 +20,8 @@ case $NOB in
        exit 1
     ;;
 esac
-chmod 744 pwr-cron.sh
 sed 's/\[MARK\]/'$TTY'/' < power-status.template > power-status.py
+chmod 744 pwr-cron.sh power-status.py
 for file in ${FAKEDEV_FILES[*]}
 do
     if [ -f $file ]
