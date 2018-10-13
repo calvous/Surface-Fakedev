@@ -1,6 +1,10 @@
 # Surface-Fakedev
 Mimics battery devices in /etc/fakedev (workaround until a battery module is available)
-Download zip file and unpack in your home directory. Run install.sh as root
+Download zip file and unpack in your home directory. You make it excecutable. Sh won't work (too much bash stuff in there).
+```
+chmod 755 install.sh
+```
+Run install.sh as root
 ```
 sudo ./install.sh
 ```
