@@ -1,0 +1,21 @@
+#!/bin/bash
+FAKE_DIR_ADP1="/etc/fakedev/power_supply/ADP1"
+FAKE_DIR_BAT1="/etc/fakedev/power_supply/BAT1"
+FAKE_DIR_BAT2="/etc/fakedev/power_supply/BAT2"
+if [ ! -d "$FAKE_DIR_ADP1" ]
+then
+    mkdir -p "$FAKE_DIR_ADP1"
+fi
+
+if [ ! -d "$FAKE_DIR_BAT1" ]
+then
+    mkdir -p "$FAKE_DIR_BAT1"
+fi
+
+if [ ! -d "$FAKE_DIR_BAT2" ]
+then
+    mkdir -p "$FAKE_DIR_BAT2"
+fi
+/usr/bin/power-status.py adp1.uevent > ${FAKE_DIR_ADP1}/uevent
+/usr/bin/power-status.py bat1.uevent > ${FAKE_DIR_BAT1}/uevent
+[MARK]/usr/bin/power-status.py bat2.uevent > ${FAKE_DIR_BAT2}/uevent
