@@ -1,5 +1,13 @@
 #!/bin/bash
-THIS_DIR=`pwd`
+TTY=ttyS0
+if [ ! -z $1 ]
+then
+    case $1 in
+        ttyS0);;
+        ttyS4) TTY=$1;;
+        *) ;;
+    esac
+fi
 FAKEDEV_FILES=("/sbin/pwr-cron.sh" "/usr/bin/power-status.py" "/etc/cron.d/power-status")
 echo "Setting up fakedevices for Battery status"
 echo "This will create devices in /etc/fakedev"
@@ -13,6 +21,7 @@ case $NOB in
     ;;
 esac
 chmod 744 pwr-cron.sh
+sed 's/\[MARK\]/'$TTY'/' < power-status.template > power-status.py
 for file in ${FAKEDEV_FILES[*]}
 do
     if [ -f $file ]
@@ -21,7 +30,7 @@ do
         read choice
         case $choice in
             n|N|no|NO|No) continue;;
-            *);;
+            *) ;;
         esac
     fi
     echo "copying" `basename $file` `dirname $file`/
