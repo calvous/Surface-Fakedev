@@ -53,15 +53,6 @@ if two batteries
 ```
 sudo ./power-status.py bat2.uevent
 ```
-// To change the tty look for line 15 in "power-status.py"
-//```
-//DEFAULT_DEVICE = '/dev/ttyS0'
-//```
-//change to
-//```
-//DEFAULT_DEVICE = '/dev/ttyS4'
-//```
-//if this is a Surface Book
 The install.sh script now supports an argument. Either "ttyS0" or "ttyS4". Defaults to "ttyS0" if no argument given.
 ```
 sudo ./install.sh ttyS0
