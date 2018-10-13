@@ -42,7 +42,7 @@ I only modified it to fit the output to the uevent file format. I don't no anyth
 so please bare with me. The script works that's all we need for now.
 
 I strongly advise to test the power-status.py script before installation.
-Just run in from the directory you unzipped it as root. Make sure to change the ttyS0 to ttyS4 if running
+Just run it from the directory you unzipped it as root. Make sure to change the ttyS0 to ttyS4 if running
 on a Surface Book
 
 ```
@@ -53,13 +53,13 @@ if two batteries
 ```
 sudo ./power-status.py bat2.uevent
 ```
-To change the tty look for a line 15 in "power-status.py"
+To change the tty look for line 15 in "power-status.py"
 ```
-15 DEFAULT_DEVICE = '/dev/ttyS0'
+DEFAULT_DEVICE = '/dev/ttyS0'
 ```
 change to
 ```
-15 DEFAULT_DEVICE = '/dev/ttyS4'
+DEFAULT_DEVICE = '/dev/ttyS4'
 ```
 if this is a Surface Book
 
