@@ -1,5 +1,5 @@
 # Surface-Fakedev
-Mimics a battery devices in /etc/fakedev (workaround until a battery module is available)
+Mimics battery devices in /etc/fakedev (workaround until a battery module is available)
 Download zip file and unpack in your home directory. Run install.sh as root
 ```
 sudo ./install.sh
@@ -36,7 +36,7 @@ battery 1 {
         path = "/etc/fakedev/power_supply/BAT1/uevent"  <-------------
 }
 ```
-The python script is originally from @qzed proof of concept and can be found here:
+The python script is originally from @qzed's proof of concept and can be found here:
 https://gist.github.com/qzed/01a93568efb863f1b7887f0f375c03fc
 I only modified it to fit the output to the uevent file format. I don't no anything about python
 so please bare with me. The script works that's all we need for now.
