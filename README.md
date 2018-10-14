@@ -1,4 +1,10 @@
 # Surface-Fakedev
+Prerequirements:
+python3 (should be installed already), python3-crcmod, python3-serial
+
+```
+sudo apt get install python3-crcmod python3-serial
+```
 Mimics battery devices in /etc/fakedev (workaround until a battery module is available)
 Download zip file and unpack in your home directory. You make it excecutable. Sh won't work (too much bash stuff in there).
 ```
