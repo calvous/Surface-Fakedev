@@ -47,7 +47,7 @@ battery 1 {
 }
 ```
 A solution for gnome can be found here: https://github.com/jakeday/linux-surface/issues/28#issuecomment-428876786
-At this time in has a little glitch an won't work with only one battery. Work around this by creating a link:
+At this time it has a little glitch and won't work with only one battery. Work around this by creating a link:
 ```
 sudo ln -s /etc/fakedev/power_supply/BAT1/uevent /etc/fakedev/power_supply/BAT2/uevent
 ```
