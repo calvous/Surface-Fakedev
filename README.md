@@ -53,8 +53,13 @@ so please bare with me. The script works that's all we need for now.
 
 I strongly advise to test the power-status.py script before installation.
 Just run it from the directory you unzipped it as root. Make sure to change the ttyS0 to ttyS4 if running
-on a Surface Book
-
+on a Surface Book. Just run install.sh w/o root against the wall. It will however create the "power-status.py" script.
+```
+./install.sh
+or
+./install.sh ttys4
+```
+then
 ```
 sudo ./power-status.py adp1.uevent
 sudo ./power-status.py bat1.uevent
