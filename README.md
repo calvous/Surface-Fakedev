@@ -6,7 +6,7 @@ python3 (should be installed already), python3-crcmod, python3-serial
 sudo apt get install python3-crcmod python3-serial
 ```
 Mimics battery devices in /etc/fakedev (workaround until a battery module is available)
-Download zip file and unpack in your home directory. You make it excecutable. Sh won't work (too much bash stuff in there).
+Download zip file and unpack in your home directory. Make it excecutable. "sh" won't work (too much bash stuff in there).
 ```
 chmod 755 install.sh
 ```
@@ -17,7 +17,7 @@ sudo ./install.sh
 This will create
 1. a cronjob in "/etc/cron.d/power-status running every minute
 2. copies the file "pwr-cron.sh" to "/sbin" execed by cron
-3. copies the file "power-status.ph" to "/usr/bin/" which will be execed
+3. copies the file "power-status.py" to "/usr/bin/" which will be execed
 by "pwr-cron.sh"
 The install script will ask for the # of batteries installed in your surface system. 1 or 2 are supported.
 The "pwr-cron.sh" script will create the directories "/etc/fakedev/power_supply/BAT1" BAT2 (if 2 batteries)
@@ -57,7 +57,7 @@ on a Surface Book. Just run install.sh w/o root against the wall. It will howeve
 ```
 ./install.sh
 or
-./install.sh ttys4
+./install.sh ttyS4
 ```
 then
 ```
