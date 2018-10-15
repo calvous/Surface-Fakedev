@@ -41,7 +41,7 @@ def to_int(bytes):
 
 
 class Counters:
-    PATH = Path(__file__).parent / '/var/log/.counters.json'
+    PATH = Path(__file__).parent / '.counters.json'
 
     @staticmethod
     def load():
