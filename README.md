@@ -80,4 +80,7 @@ sudo ./install.sh ttyS0
 or
 sudo ./install.sh ttyS4
 ```
+
+The python script will create a file in "/usr/bin" named ".counters.json". I now have redirected this to "/var/log"
+You can savely remove this file from /usr/bin.
 Of course, there is no guarantee for anything. Use on your own risk.
