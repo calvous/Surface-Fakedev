@@ -19,6 +19,8 @@ serinfo:1.0 driver revision:
 ```
 Edit the /usr/bin/power-status.py script in line 15 and 16 and have it match the baud rate and ttyS.
 
+Description:
+
 This mimics battery devices in /etc/fakedev (workaround until a battery module is available)
 Download zip file and unpack in your home directory. Make it excecutable. "sh" won't work (too much bash stuff in there).
 ```
