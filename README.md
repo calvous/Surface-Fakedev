@@ -1,7 +1,7 @@
 # Surface-Fakedev
 Description:
 -
-This mimics battery devices in /etc/fakedev (workaround until a battery module is available). Please read carefully all the way to the end. I strongly advise to test the power-status.py script before installation. Just run install.sh w/o root. It will fail but however create the "power-status.py" script if fed with the correct arguments (read below). The script is tested running on SurfacPro 5 series but success has also been seen on Surface Book 4. It is tested on Ubuntu > 18 and Manjaro > 17 on kernels down to 4.9 series and latest 4.19rc. I used always Python3.7 but it should also work with 3.5
+This mimics battery devices in /etc/fakedev (workaround until a battery module is available). Please read carefully all the way to the end. I strongly advise to test the power-status.py script before installation. Just run install.sh w/o root. It will fail but however create the "power-status.py" script if fed with the correct arguments (read below). The script is tested running on SurfacPro 5 series. It is tested on Ubuntu > 18 and Manjaro > 17 on kernels down to 4.9 series and latest 4.19rc. I used always Python3.7 but it should also work with 3.5
 
 Prerequirements:
 -
