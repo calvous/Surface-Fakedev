@@ -5,7 +5,21 @@ python3 (should be installed already), python3-crcmod, python3-serial
 ```
 sudo apt get install python3-crcmod python3-serial
 ```
-Mimics battery devices in /etc/fakedev (workaround until a battery module is available)
+This will probably not work on a Surface 4 series. Test before installation for the serial port.
+```
+$ dmesg | grep ttyS
+[    5.426845] dw-apb-uart.2: ttyS0 at MMIO 0xa1336000 (irq = 20, base_baud = 3000000) is a 16550A
+
+$ sudo cat /proc/tty/driver/serial
+serinfo:1.0 driver revision:
+0: uart:16550A mmio:0xA1336000 irq:20 tx:510 rx:2130
+1: uart:unknown port:000002F8 irq:3
+2: uart:unknown port:000003E8 irq:4
+3: uart:unknown port:000002E8 irq:3
+```
+Edit the /usr/bin/power-status.py script in line 15 and 16 and have it match the baud rate and ttyS.
+
+This mimics battery devices in /etc/fakedev (workaround until a battery module is available)
 Download zip file and unpack in your home directory. Make it excecutable. "sh" won't work (too much bash stuff in there).
 ```
 chmod 755 install.sh
