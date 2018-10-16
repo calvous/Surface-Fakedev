@@ -1,13 +1,20 @@
 #!/bin/bash
-TTY=ttyS0
+TTY=ttyS4
+BAUD=3000000
 if [ ! -z $1 ]
 then
     case $1 in
-        ttyS0);;
-        ttyS4) TTY=$1;;
-        *) ;;
+        ttyS[0-9]) TTY=$1;;
+        *) echo "Not supported - exiting"
+		   exit 1
+        ;;
     esac
 fi
+if [ ! -z $2 ]
+then
+    BAUD=$2
+fi
+
 FAKEDEV_FILES=("/sbin/pwr-cron.sh" "/usr/bin/power-status.py" "/etc/cron.d/power-status")
 echo "Setting up fakedevices for Battery status"
 echo "This will create devices in /etc/fakedev"
@@ -20,7 +27,8 @@ case $NOB in
        exit 1
     ;;
 esac
-sed 's/\[MARK\]/'$TTY'/' < power-status.template > power-status.py
+sed -e 's/\[MARK_TTY\]/'$TTY'/'\
+    -e 's/\[MARK_BAUD\]/'$BAUD'/' < power-status.template > power-status.py
 chmod 744 pwr-cron.sh power-status.py
 for file in ${FAKEDEV_FILES[*]}
 do

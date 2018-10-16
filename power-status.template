@@ -3,6 +3,7 @@
 import json
 import pprint
 import crcmod
+import os.path
 
 from argparse import ArgumentParser
 
@@ -12,8 +13,8 @@ import serial
 from serial import Serial
 
 
-DEFAULT_DEVICE = '/dev/[MARK]'
-DEFAULT_BAUD_RATE = 3000000
+DEFAULT_DEVICE = '/dev/[MARK_TTY]'
+DEFAULT_BAUD_RATE = [MARK_BAUD]
 CRC_FN = crcmod.predefined.mkCrcFun('crc-ccitt-false')
 
 
@@ -41,11 +42,11 @@ def to_int(bytes):
 
 
 class Counters:
-    PATH = Path(__file__).parent / '.counters.json'
+    PATH = '/tmp/surface-ec-counters.json'
 
     @staticmethod
     def load():
-        if Counters.PATH.is_file():
+        if os.path.isfile(Counters.PATH):
             with open(Counters.PATH) as fd:
                 data = json.load(fd)
                 seq = data['seq']
