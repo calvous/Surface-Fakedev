@@ -6,7 +6,7 @@ then
     case $1 in
         ttyS[0-9]) TTY=$1;;
         *) echo "Not supported - exiting"
-		   exit 1
+           exit 1
         ;;
     esac
 fi
