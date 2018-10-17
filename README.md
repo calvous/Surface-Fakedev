@@ -80,7 +80,7 @@ battery all {
         path = "/etc/fakedev/power_supply/BAT%d/uevent"  <-------------
 }
 ```
-A solution for gnome like DEs can be found here: https://github.com/jakeday/linux-surface/issues/28#issuecomment-428876786 At this time it has a little glitch and won't work with only one battery. Work around this by creating a link:
+Add the line marked with "<----" to your i3status.conf file which originally resides in /etc in the Manjaro i3 edition. A solution for gnome like DEs can be found here: https://github.com/jakeday/linux-surface/issues/28#issuecomment-428876786 At this time it has a little glitch and won't work with only one battery. Work around this by creating a link:
 ```
 sudo ln -s /etc/fakedev/power_supply/BAT1/uevent /etc/fakedev/power_supply/BAT2/uevent
 ```
