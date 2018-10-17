@@ -228,10 +228,10 @@ class Psr(Command):
         super().__init__(0x02, bat, 0x0d)
 
     def _handle_payload(self, pld):
-        pwr_state = to_int(pld[0:3])
+        pwr_state = to_int(pld[0:4])
         print("POWER_SUPPLY_ONLINE={}".format(pwr_state))
         return {
-            'Power Source': hex(to_int(pld[0:3])),
+            'Power Source': hex(to_int(pld[0:4])),
         }
 
 
@@ -242,7 +242,7 @@ class Sta(Command):
     def _handle_payload(self, pld):
         # print("payload: {}".format(pld.hex()))
         return {
-            'Battery Status': hex(to_int(pld[0:3])),
+            'Battery Status': hex(to_int(pld[0:4])),
         }
 
 
@@ -253,10 +253,10 @@ class Bst(Command):
     def _handle_payload(self, pld):
         # print("payload: {}".format(pld.hex()))
         return {
-            'State': hex(to_int(pld[0:3])),
-            'Present Rate': hex(to_int(pld[4:7])),
-            'Remaining Capacity': hex(to_int(pld[8:11])),
-            'Present Voltage': hex(to_int(pld[12:15])),
+            'State': hex(to_int(pld[0:4])),
+            'Present Rate': hex(to_int(pld[4:8])),
+            'Remaining Capacity': hex(to_int(pld[8:12])),
+            'Present Voltage': hex(to_int(pld[12:16])),
         }
 
 
@@ -268,25 +268,25 @@ class Bix(Command):
         # print("payload: {}".format(pld.hex()))
         return {
             'Revision': hex(pld[0]),
-            'Power Unit': hex(to_int(pld[1:4])),
-            'Design Capacity': hex(to_int(pld[5:8])),
-            'Last Full Charge Capacity': hex(to_int(pld[9:12])),
-            'Bat Present': hex(to_int(pld[13:16])),
-            'Design Voltage': hex(to_int(pld[17:20])),
-            'Design Capacity of Warning': hex(to_int(pld[21:24])),
-            'Design Capacity of Low': hex(to_int(pld[25:28])),
-            'Cycle Count': hex(to_int(pld[29:32])),
-            'Measurement Accuracy': hex(to_int(pld[33:36])),
-            'Max Sampling Time': hex(to_int(pld[37:40])),
-            'Min Sampling Time': hex(to_int(pld[41:44])),
-            'Max Averaging Interval': hex(to_int(pld[45:48])),
-            'Min Averaging Interval': hex(to_int(pld[49:52])),
-            'Capacity Granularity 1': hex(to_int(pld[53:56])),
-            'Capacity Granularity 2': hex(to_int(pld[57:60])),
-            'Model Number': pld[61:81].decode().rstrip('\0'),
-            'Serial Number': pld[82:92].decode().rstrip('\0'),
-            'Technology': pld[93:97].decode().rstrip('\0'),
-            'Manufacturer': pld[98:118].decode().rstrip('\0'),
+            'Power Unit': hex(to_int(pld[1:5])),
+            'Design Capacity': hex(to_int(pld[5:9])),
+            'Last Full Charge Capacity': hex(to_int(pld[9:13])),
+            'Bat Present': hex(to_int(pld[13:17])),
+            'Design Voltage': hex(to_int(pld[17:21])),
+            'Design Capacity of Warning': hex(to_int(pld[21:25])),
+            'Design Capacity of Low': hex(to_int(pld[25:29])),
+            'Cycle Count': hex(to_int(pld[29:33])),
+            'Measurement Accuracy': hex(to_int(pld[33:37])),
+            'Max Sampling Time': hex(to_int(pld[37:41])),
+            'Min Sampling Time': hex(to_int(pld[41:45])),
+            'Max Averaging Interval': hex(to_int(pld[45:49])),
+            'Min Averaging Interval': hex(to_int(pld[49:53])),
+            'Capacity Granularity 1': hex(to_int(pld[53:57])),
+            'Capacity Granularity 2': hex(to_int(pld[57:61])),
+            'Model Number': pld[61:82].decode().rstrip('\0'),
+            'Serial Number': pld[82:93].decode().rstrip('\0'),
+            'Technology': pld[93:98].decode().rstrip('\0'),
+            'Manufacturer': pld[98:119].decode().rstrip('\0'),
         }
 
 class UeventBat:
